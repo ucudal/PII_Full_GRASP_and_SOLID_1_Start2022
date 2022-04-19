@@ -33,6 +33,27 @@ namespace Full_GRASP_And_SOLID.Library
                 Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
                     $"usando '{step.Equipment.Description}' durante {step.Time}");
             }
+
         }
+
+        public double GetProductionCost() {
+
+            double cost = 0;
+
+            if(this.steps.Count != 0) {
+                foreach (Step step in this.steps) {
+
+                    cost += (step.Time * step.Equipment.HourlyCost) + step.Input.UnitCost;
+
+                }
+            } 
+            Console.WriteLine($"El costo total es {cost}");
+
+            return cost;
+        }
+
+        ///Se usa SRP ya que solo tiene una razon de cambio siendo esta la receta
+        ///Se usa EXPERT ya que es la unica clase que conoce los datos de la receta
     }
 }
+
