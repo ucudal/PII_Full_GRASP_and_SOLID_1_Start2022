@@ -43,7 +43,7 @@ namespace Full_GRASP_And_SOLID.Library
             if(this.steps.Count != 0) {
                 foreach (Step step in this.steps) {
 
-                    cost += (step.Time * step.Equipment.HourlyCost) + step.Input.UnitCost;
+                    cost += (step.Time * step.Equipment.HourlyCost) + step.Input.UnitCost * step.Quantity;
 
                 }
             } 
